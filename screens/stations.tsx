@@ -3,6 +3,7 @@ import TrashIcon from "@/assets/icons/trash";
 import VideoIcon from "@/assets/icons/video";
 import { Button } from "@/components/button";
 import Wrapper from "@/components/wrapper";
+import { Station } from "@/utils/types";
 import { useAddVideo } from "@/utils/useAddVideo";
 import { useDeleteVideo } from "@/utils/useRemoveVideo";
 import useStations from "@/utils/useStations";
@@ -80,7 +81,7 @@ export default function Stations({ apiKey, videoId }: { apiKey: string; videoId?
 
   let loading = isAddingVideo || isDeletingVideo || isLoading;
 
-  const realCount = (station: any) => {
+  const realCount = (station: Station) => {
     let originalCount = station._count.videos;
 
     if (videoInStations[station.id] === undefined) return originalCount;
@@ -98,7 +99,7 @@ export default function Stations({ apiKey, videoId }: { apiKey: string; videoId?
   return (
     <Wrapper title="Stations" showSettingsButton={true} apiKey={apiKey}>
       <div className="flex flex-col gap-2 h-full">
-        {stations?.map((station: any) => {
+        {stations?.map((station: Station) => {
           const videoInStation = videoInStations[station.id] ?? station.videos.length > 0;
           return (
             <div key={station.id} className="flex gap-4 items-center bg-background p-3 rounded-md shadow-sm">

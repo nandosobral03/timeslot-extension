@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 const TIMESLOT_URL = import.meta.env.VITE_TIMESLOT_URL;
 
 async function deleteVideo(apiKey: string, stationId: string, videoId: string) {
-  const url = new URL(`${TIMESLOT_URL}/api/stations/${stationId}/videos/${videoId}`, window.location.origin);
+  const url = new URL(`${TIMESLOT_URL}/api/stations/${stationId}/videos/${videoId}/`, window.location.origin);
   const response = await fetch(url.toString(), {
     method: "DELETE",
     headers: {
