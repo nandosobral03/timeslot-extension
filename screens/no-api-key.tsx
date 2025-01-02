@@ -23,8 +23,8 @@ const NoApiKey = () => {
       <h1 className="text-2xl font-bold mb-4">Hey there!</h1>
       <p className="mb-4">
         Timeslot is a tool to schedule and manage youtube videos as if they were on live TV. This extension is a companion to the Timeslot web app. Which you can find at{" "}
-        <a href="https://timeslot.app" className="underline text-primary hover:text-primary/80">
-          https://timeslot.app
+        <a href={import.meta.env.VITE_TIMESLOT_URL} className="underline text-primary hover:text-primary/80">
+          {import.meta.env.VITE_TIMESLOT_URL}
         </a>
       </p>
       <form onSubmit={handleApiKeySubmit} className="mb-4 flex flex-col gap-4">
